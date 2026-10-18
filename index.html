@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Večerníčkový kvíz</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(
+        160deg,
+        #11183c,
+        #17255b,
+        #281456
+      );
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .game {
+      width: 100%;
+      max-width: 760px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .moon {
+      font-size: 48px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 6vw, 52px);
+      margin: 5px 0;
+    }
+
+    .subtitle {
+      color: #d9ddff;
+      line-height: 1.5;
+    }
+
+    .card {
+      background: white;
+      color: #182039;
+      border-radius: 25px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+    }
+
+    .progress-bg {
+      height: 10px;
+      background: #e8e8ef;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(
+        90deg,
+        #ffc83d,
+        #ff814a,
+        #e54287
+      );
+      transition: width 0.4s;
+    }
+
+    .content {
+      padding: 35px;
+    }
+
+    .number {
+      display: inline-block;
+      background: #e8e7ff;
+      color: #40359c;
+      border-radius: 30px;
+      padding: 8px 15px;
+      font-weight: bold;
+    }
+
+    #question {
+      font-size: clamp(24px, 4vw, 34px);
+      margin: 25px 0;
+    }
+
+    .answers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .answer {
+      min-height: 120px;
+      border: 3px solid #e0e3eb;
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+      color: #252c40;
+      transition: 0.2s;
+    }
+
+    .answer:hover {
+      transform: translateY(-3px);
+      border-color: #7367d7;
+      background: #f7f6ff;
+    }
+
+    .answer.correct {
+      color: #08783e;
+      border-color: #20a562;
+      background: #e6f8ed;
+    }
+
+    .answer.wrong {
+      color: #b21f3d;
+      border-color: #de3c5a;
+      background: #fff0f3;
+    }
+
+    #message {
+      min-height: 35px;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .success {
+      color: #08783e;
+    }
+
+    .error {
+      color: #c62645;
+    }
+
+    .final {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .final-star {
+      font-size: 70px;
+    }
+
+    .final h2 {
+      margin: 20px 0;
+      padding: 30px 20px;
+      border-radius: 20px;
+      background: linear-gradient(
+        90deg,
+        #4037a3,
+        #7137a3,
+        #a52a84
+      );
+      color: white;
+      font-size: clamp(28px, 6vw, 50px);
+    }
+
+    .final p {
+      color: #08783e;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .restart {
+      border: 0;
+  
